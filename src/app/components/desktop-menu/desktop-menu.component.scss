@@ -1,0 +1,15 @@
+.desktop-menu {
+  background-color: pink;
+  border: 1px solid pink;
+
+  width: 300px;
+  max-height: 100vh;
+  height: 100vh;
+  z-index: 1;
+  display: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
