@@ -28,12 +28,16 @@ export class DesktopMenuComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.stylesService.hideMenu.subscribe(res => {
+
+      // this.show = false;
+      this.showMenu();
+
+    })
   }
 
 
   hideMenu(): void {
-    console.log('show')
-
     this.showRightArrow = !false;
     this.showLeftArrow = !true;
     this.show = !false;
@@ -42,7 +46,6 @@ export class DesktopMenuComponent implements OnInit, AfterViewInit {
   }
 
   showMenu(): void {
-    console.log('hide');
     this.showRightArrow = false;
     this.showLeftArrow = true;
     this.show = false;

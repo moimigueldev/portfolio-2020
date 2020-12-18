@@ -1,4 +1,5 @@
 import { ElementRef, Injectable, OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Props } from '../../utils/interfaces/props'
 
 @Injectable({
@@ -10,12 +11,12 @@ export class StylesService {
   desktopNavigationMenu: ElementRef
   props: Props = {};
   nativeElements: any;
-
+  desktopView
   containerHeight = 890;
+  hideMenu = new Subject();
 
-  constructor(
 
-  ) {
+  constructor() {
     window.addEventListener('scroll', () => {
       const { pageYOffset } = window
       if (pageYOffset >= this.props.introContainerHeight) {
@@ -24,6 +25,8 @@ export class StylesService {
         this.desktopNavigationMenu.nativeElement.style.opacity = '0';
       }
     });
+
+    this.desktopView = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? false : true
 
   }
 
@@ -46,12 +49,13 @@ export class StylesService {
         tabs[index].classList.add('active')
       } else {
         tabs[index].classList.remove('active')
-
       }
-
     }
 
-
+    if (!this.desktopView) {
+      this.desktopNavigationMenu.nativeElement.classList.remove('show')
+      this.hideMenu.next('hide')
+    }
 
   }
 

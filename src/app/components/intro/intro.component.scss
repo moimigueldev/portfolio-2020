@@ -47,6 +47,7 @@
   }
 }
 
+// medium sized laptops
 @media (max-height: 800px) {
   #intro {
     overflow-x: hidden;
@@ -73,6 +74,7 @@
   }
 }
 
+// all mobile devices
 @media (pointer: coarse) {
   #intro {
     width: inherit;
