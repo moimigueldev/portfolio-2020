@@ -1,4 +1,4 @@
-<div class=" mb-5" id="intro">
+<div class=" mb-5" id="intro" #introContainer>
     <div class="container" [ngClass]="{'animate': animate}">
         <div class="row">
             <div class="col-md-12">
@@ -12,7 +12,8 @@
 
                     <p class="blockquote-footer">Linus Torvalds </p>
                 </div>
-                <i class="fas fa-angle-double-down" [ngClass]="{'cta': cta}"></i>
+                <i class="fas fa-angle-double-down" [ngClass]="{'cta': cta}"
+                    (click)="stylesService.introScrollDown()"></i>
             </div>
         </div>
     </div>

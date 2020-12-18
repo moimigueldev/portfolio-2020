@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StylesService } from './utils/services/styles.service'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'portfolio2020';
+
+  constructor(
+    private stylesService: StylesService // needed in constructor to initiate service
+  ) {
+  }
 }
+

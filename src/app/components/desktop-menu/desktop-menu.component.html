@@ -1,3 +1,38 @@
-<nav id="desktop-menu" class="desktop-menu">
-    <h1>Hello</h1>
+<nav id="desktop-menu" class="desktop-menu show" [ngClass]="{'show': show}" #desktopMenu>
+    <div class="menu-icon">
+        <i class="fas fa-arrow-circle-right right" #rightArrow (click)="showMenu()" *ngIf="showRightArrow"></i>
+        <i class="fas fa-arrow-circle-left left" #leftArrow (click)="hideMenu()" *ngIf="showLeftArrow"></i>
+    </div>
+
+    <div class="header">
+        <h2>Moises Miguel</h2>
+        <hr>
+        <p><small>Full Stack Developer</small></p>
+    </div>
+
+    <div class="tabs" #tabsMenu>
+        <div class="tab active" (click)="stylesService.changeActiveTab(1)">
+            <p><i class="fas fa-user-tie"></i> Intro</p>
+        </div>
+        <div class="tab " (click)="stylesService.changeActiveTab(2)">
+            <p><i class="fas fa-laptop-code"></i> Experiance</p>
+        </div>
+        <div class="tab " (click)="stylesService.changeActiveTab(3)">
+            <p><i class="fas fa-tasks"></i> Projects</p>
+        </div>
+        <div class="tab " (click)="stylesService.changeActiveTab(4)">
+            <p><i class="fas fa-sticky-note"></i> Static Templates</p>
+        </div>
+        <div class="tab " (click)="stylesService.changeActiveTab(5)">
+            <p><i class="fas fa-dice"></i> Games</p>
+        </div>
+    </div>
+
+
+    <div class="contact">
+        <a href="#"><img src="../../../assets/icons/linkedin.png" alt="linkedIn"></a>
+        <a href="#"><img src="../../../assets/icons/gmail.png" alt="gmail"></a>
+        <a href="#"><img src="../../../assets/icons/github.png" alt="github"></a>
+        <a href="#"><img src="../../../assets/icons/angellist.png" alt="angellist"></a>
+    </div>
 </nav>

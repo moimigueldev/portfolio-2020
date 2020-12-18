@@ -1,18 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+
+import { StylesService } from 'src/app/utils/services/styles.service';
 declare var VANTA;
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.scss']
 })
-export class IntroComponent implements OnInit {
+export class IntroComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+  constructor(
+    public stylesService: StylesService
+  ) { }
 
   animate = false;
   cta = false
 
+
+  @ViewChild('introContainer') introContainer: ElementRef;
+
+  ngAfterViewInit(): void {
+
+    this.stylesService.props.introContainerHeight = this.introContainer.nativeElement.offsetHeight;
+
+
+  }
+
   ngOnInit(): void {
+
 
     // set dynamic globe background
     // VANTA.GLOBE({
