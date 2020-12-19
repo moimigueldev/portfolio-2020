@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SkillsComponent implements OnInit {
 
-  showContent = false;
+  showContent1 = false;
+  showContent2 = false;
+  showContent3 = false;
 
   constructor() { }
 

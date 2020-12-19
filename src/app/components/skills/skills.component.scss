@@ -1,10 +1,12 @@
 @import "../../../styles.scss";
 .skills {
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
-  padding-top: 400px;
+  padding-top: 300px;
+  padding-bottom: 100px;
 
   .header {
+    // overflow: hidden;
     position: absolute;
     top: -10px;
     left: 0;
@@ -12,10 +14,11 @@
     // border: 1px solid blue;
     padding: 20px 400px;
     background-color: $lightBlue;
-    h1 {
-      font-size: 50px;
-      font-weight: bolder;
-    }
+  }
+
+  h1 {
+    font-size: 50px;
+    font-weight: bolder;
   }
 }
 
@@ -104,6 +107,7 @@
         margin-right: 0;
         padding: 20px;
         border-radius: 10px;
+        font-weight: bolder;
       }
     }
   }
@@ -119,5 +123,54 @@
 
   .show-more-content {
     transform: translateY(300px);
+  }
+}
+
+// all mobile devices
+@media (pointer: coarse) {
+  .skills {
+    padding-bottom: 0px !important;
+    .header {
+      padding: 10px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-left: 20px;
+      font-weight: 400;
+    }
+
+    .container {
+      padding: 10px;
+      .content {
+        // width: 80%;
+        min-height: 200px;
+        img {
+          height: 100px;
+        }
+      }
+    }
+
+    .show-more-content {
+      max-height: 200px !important;
+      // transform: translateY(-50px);
+      padding: 20px !important;
+      //   font-size: 15px;
+
+      p {
+        padding: 5px !important;
+        margin: 5px 10px !important;
+        margin-right: 0 !important;
+        font-size: 10px !important;
+      }
+    }
+  }
+
+  .skill-block.show-content {
+    margin-bottom: 300px !important;
+
+    .show-more-content {
+      transform: translateY(200px);
+    }
   }
 }
