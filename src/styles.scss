@@ -2,6 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
 $darkBlue: #1d2634;
+$lightBlue: #28c7fa;
+$purple: #775ada;
+$red: #ff304f;
 * {
   scroll-behavior: smooth;
 }
@@ -13,4 +16,5 @@ body {
   transition: padding-left 0.3s ease-in-out;
   background-color: $darkBlue;
   overflow-x: hidden;
+  color: #fff;
 }
