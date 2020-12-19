@@ -38,6 +38,7 @@ export class DesktopMenuComponent implements OnInit, AfterViewInit {
 
 
   hideMenu(): void {
+    console.log('clicking ')
     this.showRightArrow = !false;
     this.showLeftArrow = !true;
     this.show = !false;

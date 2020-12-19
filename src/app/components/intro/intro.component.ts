@@ -61,10 +61,10 @@ export class IntroComponent implements OnInit, AfterViewInit {
       texturePath: 'assets/noise.png'
     })
     // animate heading content
-    setTimeout(() => this.animate = true, 1000)
+    setTimeout(() => this.animate = true, 100)
 
     // set timeout to animate scroll down call to action
-    setTimeout(() => this.cta = true, 3000)
+    setTimeout(() => this.cta = true, 2000)
 
 
   }

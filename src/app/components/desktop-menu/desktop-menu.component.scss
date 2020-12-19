@@ -2,7 +2,7 @@
   width: 300px;
   max-height: 100vh;
   height: 100vh;
-  z-index: 1;
+  z-index: 10;
   transform: translateX(-100%);
   opacity: 0;
   position: fixed;
@@ -14,12 +14,19 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   -webkit-box-shadow: 5px 0px 18px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 5px 0px 18px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 5px 0px 18px 0px rgba(0, 0, 0, 0.75);
-
   background-color: #2d4059;
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 300px;
+    right: -100vw;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
 
   .menu-icon {
     position: absolute;
@@ -151,6 +158,14 @@
 // all mobile devices
 @media (pointer: coarse) {
   .desktop-menu {
-    width: 100vw;
+    width: 80vw;
+
+    .overlay {
+      left: 80vw;
+    }
+
+    .tabs {
+      margin-top: 40px;
+    }
   }
 }

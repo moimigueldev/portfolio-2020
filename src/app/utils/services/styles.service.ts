@@ -26,7 +26,9 @@ export class StylesService {
       }
     });
 
-    this.desktopView = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? false : true
+    this.checkDeviceType();
+
+
 
   }
 
@@ -35,7 +37,6 @@ export class StylesService {
   }
 
   introScrollDown(): void {
-
     window.scroll(0, this.props.introContainerHeight)
     this.changeActiveTab(1)
   }
@@ -53,12 +54,16 @@ export class StylesService {
     }
 
     if (!this.desktopView) {
-      this.desktopNavigationMenu.nativeElement.classList.remove('show')
+      // this.desktopNavigationMenu.nativeElement.classList.remove('show')
       this.hideMenu.next('hide')
     }
 
   }
 
 
+  checkDeviceType(): void {
+    this.desktopView = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? false : true
+    console.log('deviceTyhpe', this.desktopView)
+  }
 
 }

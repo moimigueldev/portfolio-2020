@@ -1,4 +1,9 @@
 <nav id="desktop-menu" class="desktop-menu show" [ngClass]="{'show': show}" #desktopMenu>
+
+    <div class="overlay" *ngIf="show && !stylesService.desktopView" (click)="showMenu()"></div>
+
+
+
     <div class="menu-icon">
         <i class="fas fa-arrow-circle-right right" #rightArrow (click)="showMenu()" *ngIf="showRightArrow"></i>
         <i class="fas fa-arrow-circle-left left" #leftArrow (click)="hideMenu()" *ngIf="showLeftArrow"></i>
