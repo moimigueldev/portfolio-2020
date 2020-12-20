@@ -19,12 +19,8 @@ export class DesktopMenuComponent implements OnInit, AfterViewInit {
     public stylesService: StylesService
   ) { }
 
-  ngAfterViewInit(): any {
-    console.log(this.desktopMenu)
+  ngAfterViewInit(): void {
     this.stylesService.desktopNavigationMenu = this.desktopMenu
-
-
-
   }
 
   ngOnInit(): void {
@@ -38,7 +34,6 @@ export class DesktopMenuComponent implements OnInit, AfterViewInit {
 
 
   hideMenu(): void {
-    console.log('clicking ')
     this.showRightArrow = !false;
     this.showLeftArrow = !true;
     this.show = !false;
@@ -50,7 +45,6 @@ export class DesktopMenuComponent implements OnInit, AfterViewInit {
     this.showRightArrow = false;
     this.showLeftArrow = true;
     this.show = false;
-
   }
 
 }

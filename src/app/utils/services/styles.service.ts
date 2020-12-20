@@ -11,7 +11,7 @@ export class StylesService {
   desktopNavigationMenu: ElementRef
   props: Props = {};
   nativeElements: any;
-  desktopView
+  desktopView;
   containerHeight = 890;
   hideMenu = new Subject();
 
@@ -32,9 +32,6 @@ export class StylesService {
 
   }
 
-  logData(): void {
-    console.log('data', this.props)
-  }
 
   introScrollDown(): void {
     window.scroll(0, this.props.introContainerHeight)
@@ -63,7 +60,6 @@ export class StylesService {
 
   checkDeviceType(): void {
     this.desktopView = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? false : true
-    console.log('deviceTyhpe', this.desktopView)
   }
 
 }

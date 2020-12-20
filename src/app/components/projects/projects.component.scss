@@ -1,0 +1,177 @@
+@import "../../../styles.scss";
+.projects {
+  min-height: 100vh;
+  position: relative;
+  padding-top: 300px;
+  padding-bottom: 100px;
+  .header {
+    // overflow: hidden;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    // border: 1px solid blue;
+    padding: 20px 400px;
+    background-color: #17a2b8;
+  }
+
+  .container {
+    // border: 1px solid red;
+
+    .row {
+      //   border: 1px solid white;
+      margin-bottom: 100px;
+    }
+
+    .project {
+      //   border: 1px solid pink;
+      display: flex;
+
+      img {
+        height: 500px;
+      }
+
+      .details {
+        // border: 1px solid white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+
+        h1 {
+          font-weight: bold;
+        }
+
+        p {
+          margin-top: 10px;
+          font-weight: 300;
+        }
+
+        button:nth-of-type(1) {
+          margin-top: 20px;
+        }
+
+        button {
+          min-width: 60%;
+          margin-bottom: 20px;
+          i {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+    .static-template {
+      //   border: 1px solid orange;
+      display: flex;
+
+      .header-template {
+        // border: 2px solid red;
+        text-align: center;
+        max-width: 30%;
+        color: #17a2b8;
+      }
+
+      .templates {
+        // border: 1px solid pink;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        a {
+          font-size: 27px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+// medium sized laptops
+@media (max-height: 864px) {
+  .projects {
+    .container {
+      .row {
+        // border: 1px solid red;
+      }
+
+      .project {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          height: 300px;
+        }
+
+        .details {
+          //   border: 1px solid black;
+          max-width: 300px;
+          margin-left: 30px;
+        }
+      }
+
+      .static-template {
+        // border: 1px solid red;
+        // padding-left: 40px;
+        // padding-right: 40px;
+        max-width: 70% !important;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 100px;
+        .header-template {
+          h1 {
+            font-size: 30px;
+          }
+        }
+
+        .templates {
+          a {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (pointer: coarse) {
+  .projects {
+    padding-bottom: 0px !important;
+    .header {
+      padding: 10px 20px !important;
+      text-align: center;
+    }
+
+    .container {
+      .project {
+        // display: flex;
+        flex-direction: column;
+
+        img {
+          // display: none;
+          height: 200px;
+        }
+      }
+
+      .static-template {
+        flex-direction: column;
+        .header-template {
+          //   border: 1px solid red;
+          max-width: 100% !important;
+          margin-bottom: 30px;
+        }
+
+        .templates {
+          flex-direction: column;
+          //   justify-content: space-between;
+          a {
+            margin-bottom: 10px;
+            font-size: 27px;
+          }
+        }
+      }
+    }
+  }
+}
