@@ -17,14 +17,14 @@ export class StylesService {
 
 
   constructor() {
-    // window.addEventListener('scroll', () => {
-    //   const { pageYOffset } = window
-    //   if (pageYOffset >= this.props.introContainerHeight) {
-    //     this.desktopView ? this.desktopNavigationMenu.nativeElement.style.opacity = '1' : null;
-    //   } else {
-    //     this.desktopNavigationMenu.nativeElement.style.opacity = '0';
-    //   }
-    // });
+    window.addEventListener('scroll', () => {
+      const { pageYOffset } = window
+      if (pageYOffset >= this.props.introContainerHeight) {
+        this.desktopView ? this.desktopNavigationMenu.nativeElement.style.opacity = '1' : null;
+      } else {
+        this.desktopNavigationMenu.nativeElement.style.opacity = '0';
+      }
+    });
 
     this.checkDeviceType();
 

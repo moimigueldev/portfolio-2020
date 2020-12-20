@@ -4,11 +4,12 @@
     </div>
 
     <div class="container">
-        <div class="row col-12 skill-block" [ngClass]="{'show-content': showContent1}">
+        <div class="row col-12 skill-block" (click)="showContent1 = !showContent1"
+            [ngClass]="{'show-content': showContent1}">
             <h1>Front End</h1>
             <div class="content">
 
-                <div class="show-more-icon" (click)="showContent1 = !showContent1">
+                <div class="show-more-icon">
                     <i class="fas fa-info"></i>
                 </div>
                 <img src="https://andrewborstein.com/assets/img/bootstrap.png" alt="">
@@ -44,11 +45,12 @@
 
 
 
-        <div class="row col-12 skill-block" [ngClass]="{'show-content': showContent2}">
+        <div class="row col-12 skill-block" (click)="showContent2 = !showContent2"
+            [ngClass]="{'show-content': showContent2}">
             <h1>Back End</h1>
             <div class="content">
 
-                <div class="show-more-icon" (click)="showContent2 = !showContent2">
+                <div class="show-more-icon">
                     <i class="fas fa-info"></i>
                 </div>
                 <img src="https://andrewborstein.com/assets/img/bootstrap.png" alt="">
@@ -82,11 +84,12 @@
         </div>
 
 
-        <div class="row col-12 skill-block" [ngClass]="{'show-content': showContent3}">
+        <div class="row col-12 skill-block" (click)="showContent3 = !showContent3"
+            [ngClass]="{'show-content': showContent3}">
             <h1>MORE</h1>
             <div class="content">
 
-                <div class="show-more-icon" (click)="showContent3 = !showContent3">
+                <div class="show-more-icon">
                     <i class="fas fa-info"></i>
                 </div>
                 <img src="https://andrewborstein.com/assets/img/bootstrap.png" alt="">

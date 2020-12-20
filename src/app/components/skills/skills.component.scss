@@ -144,17 +144,19 @@
       padding: 10px;
       .content {
         // width: 80%;
-        min-height: 200px;
+        min-height: 118px;
         img {
-          height: 100px;
+          height: 70px;
         }
       }
     }
 
     .show-more-content {
-      max-height: 200px !important;
+      max-height: 120x !important;
       // transform: translateY(-50px);
+      // border: 3px solid orange;
       padding: 20px !important;
+      padding-bottom: 30px;
       //   font-size: 15px;
 
       p {
@@ -170,7 +172,7 @@
     margin-bottom: 300px !important;
 
     .show-more-content {
-      transform: translateY(200px);
+      transform: translateY(118px);
     }
   }
 }
