@@ -16,21 +16,24 @@
     </div>
 
     <div class="tabs" #tabsMenu>
-        <div class="tab active" (click)="stylesService.changeActiveTab(1)">
+        <div class="tab " (click)="stylesService.changeActiveTab(1)">
+            <p><i class="fas fa-user-tie"></i> Intro</p>
+        </div>
+        <div class="tab active" (click)="stylesService.changeActiveTab(2)">
             <p><i class="fas fa-user-tie"></i> Skills</p>
         </div>
-        <div class="tab " (click)="stylesService.changeActiveTab(2)">
+        <div class="tab " (click)="stylesService.changeActiveTab(3)">
             <p><i class="fas fa-laptop-code"></i> Experiance</p>
         </div>
-        <div class="tab " (click)="stylesService.changeActiveTab(3)">
+        <div class="tab " (click)="stylesService.changeActiveTab(4)">
             <p><i class="fas fa-tasks"></i> Projects</p>
         </div>
-        <div class="tab " (click)="stylesService.changeActiveTab(4)">
+        <!-- <div class="tab " (click)="stylesService.changeActiveTab(5)">
             <p><i class="fas fa-sticky-note"></i> Static Templates</p>
         </div>
-        <div class="tab " (click)="stylesService.changeActiveTab(5)">
+        <div class="tab " (click)="stylesService.changeActiveTab(6)">
             <p><i class="fas fa-dice"></i> Games</p>
-        </div>
+        </div> -->
     </div>
 
 

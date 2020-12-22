@@ -8,17 +8,29 @@ import { Props } from '../../utils/interfaces/props'
 export class StylesService {
 
 
-  desktopNavigationMenu: ElementRef
+  desktopNavigationMenu: ElementRef;
+  skillsSection: ElementRef;
+  experianceSection: ElementRef;
+  projectsSection: ElementRef;
+
+
+
   props: Props = {};
   nativeElements: any;
   desktopView;
   containerHeight = 890;
   hideMenu = new Subject();
+  // sectionDic = {
+  //   1: 'intro',
+  //   2: 
+  // }
 
 
   constructor() {
     window.addEventListener('scroll', () => {
-      const { pageYOffset } = window
+      const { pageYOffset } = window;
+      // console.log('height', pageYOffset)
+
       if (pageYOffset >= this.props.introContainerHeight) {
         this.desktopView ? this.desktopNavigationMenu.nativeElement.style.opacity = '1' : null;
       } else {
@@ -27,6 +39,9 @@ export class StylesService {
     });
 
     this.checkDeviceType();
+
+    console.log('introHeight', this.props);
+
 
 
 
@@ -53,6 +68,37 @@ export class StylesService {
     if (!this.desktopView) {
       this.desktopNavigationMenu.nativeElement.classList.remove('show')
       this.hideMenu.next('hide')
+    }
+
+    this.goToSection(tabNum);
+
+  }
+
+
+  goToSection(section: number): void {
+
+    console.log('section', section)
+    this.skillsSection.nativeElement.scrollIntoView()
+
+    switch (section) {
+      case 1:
+        window.scroll(0, 0)
+        break;
+
+      case 2:
+        this.skillsSection.nativeElement.scrollIntoView()
+
+        break;
+      case 3:
+        this.experianceSection.nativeElement.scrollIntoView()
+        break;
+      case 4:
+        this.projectsSection.nativeElement.scrollIntoView()
+        break;
+
+      default:
+        console.log('none')
+        break;
     }
 
   }

@@ -60,6 +60,7 @@ export class IntroComponent implements OnInit, AfterViewInit {
       scale: 1.00,
       texturePath: 'assets/noise.png'
     })
+
     // animate heading content
     setTimeout(() => this.animate = true, 100)
 
