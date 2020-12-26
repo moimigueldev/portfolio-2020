@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { StylesService } from './utils/services/styles.service'
 
 @Component({
@@ -6,15 +6,18 @@ import { StylesService } from './utils/services/styles.service'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
 
   desktopView = true;
 
   constructor(
     private stylesService: StylesService // needed in constructor to initiate service
   ) {
-
     this.checkDeviceBeingUsed()
+  }
+
+  ngAfterViewInit(): void {
+
 
   }
 

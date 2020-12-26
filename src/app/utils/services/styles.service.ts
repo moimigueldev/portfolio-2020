@@ -27,20 +27,35 @@ export class StylesService {
 
 
   constructor() {
+
+    setTimeout(() => {
+      console.log('header', this.skillsSection.nativeElement.offsetTop)
+    }, 1000);
+
+
+
+
+
+
     window.addEventListener('scroll', () => {
       const { pageYOffset } = window;
-      // console.log('height', pageYOffset)
+      console.log(pageYOffset)
+
+      if (this.skillsSection.nativeElement.offsetHeight <= pageYOffset) {
+        console.log('yes')
+      }
+
 
       if (pageYOffset >= this.props.introContainerHeight) {
         this.desktopView ? this.desktopNavigationMenu.nativeElement.style.opacity = '1' : null;
       } else {
         this.desktopNavigationMenu.nativeElement.style.opacity = '0';
-      }
+      };
     });
 
     this.checkDeviceType();
 
-    console.log('introHeight', this.props);
+
 
 
 
@@ -77,7 +92,6 @@ export class StylesService {
 
   goToSection(section: number): void {
 
-    console.log('section', section)
     this.skillsSection.nativeElement.scrollIntoView()
 
     switch (section) {
