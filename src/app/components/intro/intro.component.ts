@@ -22,6 +22,7 @@ export class IntroComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
 
     this.stylesService.props.introContainerHeight = this.introContainer.nativeElement.offsetHeight;
+    this.stylesService.introContainer = this.introContainer;
 
 
   }

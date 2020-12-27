@@ -1,6 +1,6 @@
 import { ElementRef, Injectable, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Props } from '../../utils/interfaces/props'
+import { Heights, Props } from '../../utils/interfaces/props'
 
 @Injectable({
   providedIn: 'root'
@@ -12,38 +12,28 @@ export class StylesService {
   skillsSection: ElementRef;
   experianceSection: ElementRef;
   projectsSection: ElementRef;
+  introContainer: ElementRef;
 
-
+  heights: Heights = {};
 
   props: Props = {};
   nativeElements: any;
   desktopView;
   containerHeight = 890;
   hideMenu = new Subject();
-  // sectionDic = {
-  //   1: 'intro',
-  //   2: 
-  // }
 
 
   constructor() {
 
-    setTimeout(() => {
-      console.log('header', this.skillsSection.nativeElement.offsetTop)
-    }, 1000);
 
 
-
-
+    this.calculateSectionsHeights();
 
 
     window.addEventListener('scroll', () => {
       const { pageYOffset } = window;
-      console.log(pageYOffset)
 
-      if (this.skillsSection.nativeElement.offsetHeight <= pageYOffset) {
-        console.log('yes')
-      }
+      this.listenToActiveTab(pageYOffset);
 
 
       if (pageYOffset >= this.props.introContainerHeight) {
@@ -96,23 +86,57 @@ export class StylesService {
 
     switch (section) {
       case 1:
-        window.scroll(0, 0)
+        window.scroll(0, 0);
         break;
 
       case 2:
-        this.skillsSection.nativeElement.scrollIntoView()
-
+        this.skillsSection.nativeElement.scrollIntoView();
         break;
       case 3:
-        this.experianceSection.nativeElement.scrollIntoView()
+        this.experianceSection.nativeElement.scrollIntoView();
         break;
-      case 4:
-        this.projectsSection.nativeElement.scrollIntoView()
-        break;
-
       default:
-        console.log('none')
+        this.projectsSection.nativeElement.scrollIntoView();
         break;
+    }
+
+  }
+
+  listenToActiveTab(YOffset: number) {
+
+    const currentTab = this.desktopNavigationMenu.nativeElement.querySelector('.active')
+    const tabs = this.desktopNavigationMenu.nativeElement.querySelector('.tabs');
+
+    if (YOffset > this.heights.intro && YOffset < this.heights.skills) {
+      currentTab.classList.remove('active');
+      tabs.children[1].classList.add('active')
+    } else if (YOffset > this.heights.skills && YOffset < this.heights.experiance) {
+      currentTab.classList.remove('active');
+      tabs.children[2].classList.add('active')
+    } else if (YOffset > this.heights.experiance && YOffset < this.heights.projects) {
+      currentTab.classList.remove('active');
+      tabs.children[3].classList.add('active')
+    } else {
+      currentTab.classList.remove('active');
+      tabs.children[0].classList.add('active')
+    }
+
+
+
+  }
+
+
+  calculateSectionsHeights() {
+
+    if (this.skillsSection === undefined && this.introContainer === undefined) {
+      setTimeout(() => {
+        return this.calculateSectionsHeights();
+      }, 100)
+    } else {
+      this.heights.intro = this.introContainer.nativeElement.offsetHeight;
+      this.heights.skills = this.heights.intro + this.skillsSection.nativeElement.offsetHeight;
+      this.heights.experiance = this.heights.skills + this.experianceSection.nativeElement.offsetHeight;
+      this.heights.projects = this.heights.experiance + this.projectsSection.nativeElement.offsetHeight;
     }
 
   }
